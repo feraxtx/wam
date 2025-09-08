@@ -6,7 +6,8 @@
   "permissions": [
     "clipboardWrite",
     "tabs",
-    "webNavigation"
+    "webNavigation",
+    "contextMenus"
   ],
   "background": {
     "scripts": ["background.js"]

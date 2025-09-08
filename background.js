@@ -12,6 +12,22 @@ browser.webNavigation.onCommitted.addListener(
 , /* filter */ { url: [ { urlPrefix: urlPrefix } ], }
 );
 
+// Create context menu item
+browser.contextMenus.create({
+  id: "pop-out-tab",
+  title: "Open as web app",
+  contexts: ["page", "selection", "link", "image", "video", "audio"]
+});
+
+// Handle context menu clicks
+browser.contextMenus.onClicked.addListener(function(info, tab) {
+  if (info.menuItemId !== "pop-out-tab") return;
+  browser.windows.create({
+    type: 'popup',
+    tabId: tab.id,
+  });
+});
+
 //// webappmaker.test/<urlencoded_url>
 //chrome.webRequest.onBeforeRequest.addListener(
 ///* callback */ function(req) {
