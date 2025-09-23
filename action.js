@@ -1,20 +1,42 @@
+// Get the URL prefix.
 const urlPrefix = browser.runtime.getURL("/app/");
-//const urlPrefix = "http://webappmaker.test/";
 
-browser.tabs.query({active: true, currentWindow: true}).then(function(tabs) {
-  document.getElementById("popout").onclick = function(click) {
-    browser.windows.create({
-      type: 'popup',
-      tabId: tabs[0].id,
+browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
+  const popoutLink = document.getElementById("popout");
+  const linkifyLink = document.getElementById("linkify");
+
+  if (!popoutLink || !linkifyLink) {
+    console.error("Elements 'popout' or 'linkify' not found.");
+    return; // Exit early if elements are missing
+  }
+
+  popoutLink.addEventListener("click", event => {
+    event.preventDefault(); // Prevent default link behavior
+    browser.windows.create({ type: 'popup', tabId: tabs[0].id })
+      .catch(error => {
+        console.error("Error creating popup window:", error);
+      });
+  });
+
+
+
+  try {
+    // Encode the URL for the 'linkify' link.  Crucial for proper encoding.
+    linkifyLink.href = urlPrefix + encodeURIComponent(tabs[0].url);
+    linkifyLink.addEventListener("click", event => {
+      event.preventDefault();
+
+      navigator.clipboard.writeText(linkifyLink.href)
+        .then(() => {
+          linkifyLink.querySelector("span").textContent = "☑";
+        })
+        .catch(err => {
+          console.error("Error copying to clipboard:", err);
+          linkifyLink.querySelector("span").textContent = "❌";
+        });
     });
-    return false;
-  };
+  } catch (error) {
+    console.error("Error updating linkify link:", error);
+  }
 
-  let make = document.getElementById("linkify");
-  make.href = urlPrefix + encodeURIComponent(tabs[0].url);
-  make.onclick = function(click) {
-    navigator.clipboard.writeText(click.target.href);
-    make.children[0].innerText = "☑";
-    return false;
-  };
 });
