@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "en-US": "Open sites in a window without any browser decorations. For when you want the Progressive Web App (PWA) or Site Specific Browser (SSB) experience."
+  },
+  "categories": [
+    "other"
+  ],
+  "version": {
+    "license": "MIT"
+  }
+}
