@@ -1,10 +1,10 @@
 {
     "scripts": {
         "lint": "web-ext lint",
-        "dev": "web-ext run",
+        "dev": "web-ext run --firefox /var/lib/flatpak/app/app.zen_browser.zen/current/active/files/zen/zen-bin",
         "build": "web-ext build --overwrite-dest"
     },
     "devDependencies": {
-        "web-ext": "^8.10.0"
+        "web-ext": "^9.3.0"
     }
 }
