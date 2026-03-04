@@ -16,5 +16,19 @@
                 "required": ["none"]
             }
         }
+    },
+    "commands": {
+        "preserve": {
+            "description": "Opens the tab in preserve mode",
+            "suggested_key": {
+                "default": "Alt+P"
+            }
+        },
+        "as_copy": {
+            "description": "Opens a clone of the tab",
+            "suggested_key": {
+                "default": "Alt+K"
+            }
+        }
     }
 }
