@@ -5,6 +5,7 @@ name: Publish Addon
 run-name: 🚀 Publising Addon 🚀
 on:
     workflow_dispatch:
+    workflow_call:
     release:
       types:
         - created
