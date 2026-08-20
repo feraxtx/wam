@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[wam] redirecting...</title>
+    <style>
+        :root {
+            --bg-color: #eff1f5;
+            --fg-color: #4c4f69;
+            
+            /* Catppuccin Latte */
+            --cat-blue: #1e66f5;
+            --cat-turquoise: #179299;
+            --cat-green: #40a02b;
+            --cat-yellow: #df8e1d;
+            --cat-orange: #fe640b;
+            --cat-red: #d20f39;
+            --cat-pink: #ea76cb;
+            --cat-purple: #8839ef;
+            --cat-toolbar: #bcc0cc;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1e1e2e;
+                --fg-color: #cdd6f4;
+                
+                /* Catppuccin Mocha */
+                --cat-blue: #89b4fa;
+                --cat-turquoise: #94e2d5;
+                --cat-green: #a6e3a1;
+                --cat-yellow: #f9e2af;
+                --cat-orange: #fab387;
+                --cat-red: #f38ba8;
+                --cat-pink: #f5c2e7;
+                --cat-purple: #cba6f7;
+                --cat-toolbar: #585b70;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--fg-color);
+            font-family: monospace;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: start;
+            height: 100vh;
+            box-sizing: border-box;
+            gap: 20px;
+        }
+
+        #error-container {
+            padding: 15px;
+            color: var(--cat-red);
+            border-left: 4px solid var(--cat-red);
+            border-radius: 8px;
+            background-color: color-mix(in srgb, var(--bg-color) 90%, var(--cat-red) 10%);
+            display: none; /* Hidden by default */
+        }
+
+        #available-containers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .container-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: color-mix(in srgb, var(--bg-color) 95%, var(--fg-color) 5%);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            color: var(--ctx-color);
+            font-size: 14px;
+        }
+
+        .container-item:hover {
+            background-color: color-mix(in srgb, var(--bg-color) 85%, var(--fg-color) 15%);
+        }
+
+        /* Use CSS mask to apply the container color to the native Firefox SVG */
+        .container-icon {
+            width: 16px;
+            height: 16px;
+            background-color: var(--ctx-color);
+            mask-image: var(--icon-url);
+            -webkit-mask-image: var(--icon-url);
+            mask-size: cover;
+            -webkit-mask-size: cover;
+        }
+    </style>
+    <script type="module" src="handler.js"></script>
+</head>
+<body>
+    <div id="error-container"></div>
+    <div id="available-containers"></div>
+</body>
+</html>

@@ -5,7 +5,7 @@
     "version": "20260303",
     "author": "feraxhp",
     "license": "MIT",
-    "permissions": ["tabs", "webNavigation", "contextMenus"],
+    "permissions": ["tabs", "webNavigation", "contextMenus", "contextualIdentities", "cookies"],
     "background": {
         "scripts": ["background.js"]
     },
@@ -30,5 +30,12 @@
                 "default": "Alt+K"
             }
         }
-    }
+    },
+    "protocol_handlers": [
+        {
+            "protocol": "ext+wam",
+            "name": "[wam] popup",
+            "uriTemplate": "/handler/handler.html?q=%s"
+        }
+    ]
 }
