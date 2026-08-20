@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "As wep app",
     "description": "Open sites in a window without any browser decorations. For when you want the Progressive Web App (PWA) or Site Specific Browser (SSB) experience.",
-    "version": "20260303",
+    "version": "20260820",
     "author": "feraxhp",
     "license": "MIT",
     "permissions": ["tabs", "webNavigation", "contextMenus", "contextualIdentities", "cookies"],
