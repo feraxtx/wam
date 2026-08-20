@@ -6,7 +6,7 @@ This extension allows you to open websites in a dedicated popup window, effectiv
 
 * **Open websites in a new popup:** Avoid the browser's default UI.
 * **Context menu & Shortcut integration:** Open apps via right-click or keyboard shortcuts with two different behaviors (Preserve or Copy).
-* **CLI / Terminal Integration:** Launch websites directly from your terminal or desktop environment using a custom protocol handler (`ext+webapp:`).
+* **CLI / Terminal Integration:** Launch websites directly from your terminal or desktop environment using a custom protocol handler (`ext+wam:`).
 * **Container Support:** Open terminal-launched web apps isolated inside specific Firefox containers.
 * **Robust URL Handling:** Includes error handling and a visual fallback UI if a requested container does not exist.
 
